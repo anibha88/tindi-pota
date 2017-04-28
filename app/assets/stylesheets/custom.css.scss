@@ -1,2 +1,56 @@
+$navbar-default-bg: #111;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.center {
+  text-align: center;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #FF69B4;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+  
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}  
+
+.jumbotron {
+  background-image: asset-url('dosa.png');
+  background-size: cover;
+  height: 300px;
+}
+
+.jumbotron h1 {
+  color:  #ffffff;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.jumbotron h2 {
+  color:  #ffffff;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.btn-xlarge {
+    background-color: #111;
+}
+
+.btn-xlarge:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
