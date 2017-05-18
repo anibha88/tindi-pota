@@ -1,4 +1,4 @@
-$navbar-default-bg: #111;
+$navbar-default-bg: #432c1e;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -10,7 +10,7 @@ $navbar-default-bg: #111;
 #logo {
   float: left;
   font-size: 1.7em;
-  color: #FF69B4;
+  color: #c65204;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
@@ -22,13 +22,13 @@ $navbar-default-bg: #111;
 }  
 
 .jumbotron {
-  background-image: asset-url('dosa.png');
+  background-image: asset-url('recipe_seeds.png');
   background-size: cover;
   height: 300px;
 }
 
 .jumbotron h1 {
-  color:  #ffffff;
+  color:  #B7AC9A;
   text-align: center;
   margin-bottom: 30px;
   letter-spacing: -1px;
@@ -36,7 +36,7 @@ $navbar-default-bg: #111;
 }
 
 .jumbotron h2 {
-  color:  #ffffff;
+  color:  #B7AC9A;
   text-align: center;
   margin-bottom: 30px;
   letter-spacing: -1px;
@@ -44,7 +44,7 @@ $navbar-default-bg: #111;
 }
 
 .btn-xlarge {
-    background-color: #111;
+    background-color: #652D0E;
 }
 
 .btn-xlarge:hover {
@@ -52,5 +52,12 @@ $navbar-default-bg: #111;
     text-decoration: none;
 }
 
+.description {
+  margin-top: 0;
+}
+
+.well a {
+  color: #432c1e;
+}
 
 
