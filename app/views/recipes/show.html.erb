@@ -1,14 +1,25 @@
-<h1 align="center"> Recipe Name: <%= @recipe.name.capitalize %></h1>
-<hr />
+<%= render 'shared/page_title', title: @recipe.name %>
 <div class="well col-md-8 col-md-offset-2">
   <!-- because we want it in the middle of our page and we want a offset from the left. we want to basically skip the first 2 columns and hence we use offset-2. So it will skip the first two columns and then start after 2nd column-->
   <h4 class="center description">
-    <strong> Description: </strong>
+    <strong> Steps: </strong>
   </h4>
   <hr />
-  <%= @recipe.description %>
-  <p> Created by: </p>
-  <p> <small> <%= @recipe.chef.chefname %> </small>
-    <div class="pull-right"> Created: <%= time_ago_in_words(@recipe.created_at) %> ago</div>
-  </p>
+  <%= simple_format(@recipe.description) %>
+  <hr />
+
+  <div class="pull-right"> 
+    <p class="center">
+      <em>Created by:</em>
+    </p>
+    <p class="center">
+      <%= link_to gravatar_for(@recipe.chef, size: 120), recipes_path %>
+    </p>
+    <p class="center">
+      <small> <%= @recipe.chef.chefname.capitalize %> </small>
+        <div class="pull-right">
+          Created <%= time_ago_in_words(@recipe.created_at) %> ago
+        </div>
+    </p>
+  </div>
 </div>
