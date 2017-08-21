@@ -31,4 +31,14 @@ class ChefsListingTest < ActionDispatch::IntegrationTest
     assert_select 'a>img.img-circle'
     assert_match @chef.recipes.count.to_s, response.body
   end
+
+  test "should delete chef" do
+    get chefs_path 
+    assert_template 'chefs/index'
+    assert_difference 'Chef.count', -1 do
+      delete chef_path(@chef2)
+    end
+    assert_redirected_to chefs_path
+    assert_not flash.empty?
+  end
 end
