@@ -33,6 +33,7 @@ class ChefsListingTest < ActionDispatch::IntegrationTest
   end
 
   test "should delete chef" do
+    sign_in_as(@chef2, "sri hari")
     get chefs_path 
     assert_template 'chefs/index'
     assert_difference 'Chef.count', -1 do
