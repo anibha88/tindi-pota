@@ -40,11 +40,12 @@
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_chef.chefname.capitalize %>'s Profile <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_chef.chefname.capitalize %>'s Profile <%= "(Admin)" if current_chef.admin? %>  <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li> <%= link_to 'View your profile', chef_path(current_chef) %> </li>
               <li> <%= link_to 'Edit your profile', edit_chef_path(current_chef)%> </li>
-              <li><a href="#">Something else here</a></li>
+              <li><%= link_to 'Delete your account', chef_path(current_chef), method: :delete, 
+                data: {confirm: "Warning!!! You cannot undo this action. Are you sure you want to delete your account and all your associated recipes?"} if !current_chef.admin? %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to 'Log out', logout_path, method: :delete %></li>
             </ul>

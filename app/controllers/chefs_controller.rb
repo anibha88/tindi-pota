@@ -41,9 +41,18 @@ class ChefsController < ApplicationController
   end
 
   def destroy
-    @chef.destroy
-    flash[:danger] = "Chef and all associated recipes have been deleted!"
-    redirect_to chefs_path
+    
+    if current_chef.admin?
+      @chef.destroy
+      flash[:danger] = "That stupid chef is gone!"
+      redirect_to chefs_path
+    else
+      session[:chef_id] = nil
+      @chef.destroy
+      flash[:danger] = "Sorry to see you go :( Please feel free to Signup anytime you change your mind!"
+      redirect_to root_path
+    end
+    
   end
 
   private
@@ -57,7 +66,7 @@ class ChefsController < ApplicationController
   end
 
   def require_same_user
-    if current_chef != @chef
+    if current_chef != @chef and !current_chef.admin?
       flash[:danger] = "You can only edit or delete your own account"
       redirect_to chefs_path
     end

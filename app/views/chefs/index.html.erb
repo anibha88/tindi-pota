@@ -9,7 +9,7 @@
           <li><%= link_to gravatar_for(chef), chef_path(chef) %></li>  
           <li> <small> <%= "#{recipe_count(chef)}" %> </small> </li>
           <li> <%= link_to "Delete this chef", chef_path(chef), method: :delete, 
-                data: {confirm: "Are you sure you want to delete the chef and all associated recipes?"}  %> </li>
+                data: {confirm: "Are you sure you want to delete the chef and all associated recipes?"} if logged_in? && (current_chef.admin? and current_chef != chef) %> </li>
         </div>
       </div>
     </ul>
